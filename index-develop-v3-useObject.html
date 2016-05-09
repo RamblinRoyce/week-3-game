@@ -56,8 +56,32 @@ document.onkeyup = function(event) {
 			}
 		}		
 
+		var cPick = {
+			winPick: computerPick,
 
-		
+			winner: function() {
+				wins++
+				guessCount = 9
+			},
+
+			loser: function() {
+				guessCount--
+				if (guessCount == 0){
+					losses--
+				}
+			},
+
+		}
+
+		if (userGuess == cPick.winPick){
+			cPick.winner();
+			
+		}	
+		if (userGuess !== cPick.winPick){
+			cPick.loser();
+			
+		}	
+
 		// Taking the tallies and displaying them in HTML
 		var html = "<p>Guess what letter I'm thinking of</p>" +
 		"<p>Wins: " + 

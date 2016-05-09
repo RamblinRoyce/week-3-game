@@ -35,27 +35,39 @@ document.onkeyup = function(event) {
 	//alert(userGuess)
 	//alert(computerPick)
 
-	// if guessCount > 0 run game
-		if (guessCount > 0) {
-			
-			// Compares userGuess to computerPick
-			if (userGuess == computerPick){
-
-				// if true, User wins, reset game
-					wins++;
-			}else{
-				guessTally.push(userGuess);
-				guessCount--;
-			}
-		
+	
 			// already picked letter check
+			var userCheck = guessTally.indexOf(userGuess);
+			if (userCheck == false){
 
 
-			if (guessCount == 0) {
-				losses++;
+				// Compares userGuess to computerPick
+				if (userGuess == computerPick){
+
+					// if true, User wins, reset game
+						wins++;
+				}else{
+					guessTally.push(userGuess);
+					guessCount--;
+				}
+			
+				
+
+
+				if (guessCount == 0) {
+					losses++;
+					guessCount = 9;
+				}
 			}
-		}		
 
+		// if guessCount = 0, losses++ and reset game
+		<!--
+		//if (guessCount = 0) {
+		//	losses++
+		//	guessCount = 9
+
+		//}		
+		-->
 
 		
 		// Taking the tallies and displaying them in HTML
