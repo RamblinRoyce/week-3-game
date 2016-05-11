@@ -17,7 +17,8 @@
 <script type="text/javascript">
 
 // Sets the computer choices to whole alphabet
-var computerChoices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'r', 'p', 's'];
+// Probably an easier method but didn't bother to research
+var computerChoices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'r', 'p', 's'];
 
 // Declares the tallies to 0 
 var wins = 0;
@@ -25,34 +26,44 @@ var losses = 0;
 var guessCount = 9;
 var guessTally = [];
 
+// This sets the computer guess equal to the random.
+	var computerPick = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
+	var cPick = computerPick
+
 // When the user presses the key it records the keypress and then sets it to userguess
 document.onkeyup = function(event) {
 	var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
 
-	// This sets the computer guess equal to the random.
-	var computerPick = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-
-	//alert(userGuess)
-	//alert(computerPick)
+	
+	
+	alert(userGuess)
+	alert(computerPick)
+	alert(cPick)
 
 	// if guessCount > 0 run game
 		if (guessCount > 0) {
 			
-			// Compares userGuess to computerPick
-			if (userGuess == computerPick){
+			// already picked letter check, if NOT in array / false, then run 
 
-				// if true, User wins, reset game
-					wins++;
-			}else{
-				guessTally.push(userGuess);
-				guessCount--;
-			}
-		
-			// already picked letter check
+				// Compares userGuess to computerPick
+				if (userGuess == computerPick){
 
+					// if true, User wins, reset game
+						wins++;
+						guessCount = 9;
+						guessTally = [];
+				}else{
+					guessTally.push(userGuess);
+					guessCount--;
+				}
+			
+			
 
 			if (guessCount == 0) {
 				losses++;
+				guessCount = 9;
+				guessTally = [];
 			}
 		}		
 

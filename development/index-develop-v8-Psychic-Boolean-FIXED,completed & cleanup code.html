@@ -18,7 +18,7 @@
 
 // Sets the computer choices to whole alphabet
 // Probably an easier method but didn't bother to research
-var computerChoices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+var computerChoices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'r', 'p', 's'];
 
 // Declares the tallies to 0 
 var wins = 0;
@@ -34,7 +34,7 @@ document.onkeyup = function(event) {
 	// This sets the computer guess, at the beginning of the game
 	if (guessCount == 9) {
 		var computerPick = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-		setCompPick = computerPick;
+		setCompPick = computerPick
 	}
 
 	// if userPick is not in guessTally array, run game
